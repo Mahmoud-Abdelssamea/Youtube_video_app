@@ -13,5 +13,5 @@ export const lightThemes = {
   text: "black",
   textSoft: "#606060",
   soft: "#f5f5f5",
-  hover: "hsl(0, 0%, 100%, 0.5)",
+  hover: "hsl(0, 0%, 0%, 0.2)",
 };
