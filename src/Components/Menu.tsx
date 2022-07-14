@@ -24,6 +24,7 @@ import { Paragraph } from "./Paragraph";
 import { MenuItem } from "./MenuItem";
 import { darkThemes } from "../Utils/Themes";
 import { Dispatch, SetStateAction } from "react";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   flex: 1;
@@ -61,6 +62,13 @@ const SignIn = styled.div`
   font-size: 0.7rem;
 `;
 
+const Title = styled.h1`
+  font-size: 0.7rem;
+  padding: 0.5rem;
+  color: #aaa;
+  font-weight: 500;
+`;
+
 interface MenuProps {
   darkMode: boolean;
   setDarkMode: Dispatch<SetStateAction<boolean>>;
@@ -69,23 +77,44 @@ interface MenuProps {
 export const Menu = ({ darkMode, setDarkMode }: MenuProps) => {
   return (
     <Container>
-      <Logo>
-        <AiFillYoutube size={"2rem"} color={"red"} />
-        <h3>Mahmoud </h3>
-      </Logo>
+      <Link to={"/"} style={{ textDecoration: "none", color: "inherit" }}>
+        <Logo>
+          <AiFillYoutube size={"2rem"} color={"red"} />
+          <h3>Mahmoud </h3>
+        </Logo>
+      </Link>
+
       <Wrapper>
-        <MenuItem text={"Home"} logo={<AiOutlineHome />} />
-        <MenuItem text="Explplore" logo={<MdOutlineExplore />} />
-        <MenuItem text="subscribtion" logo={<MdOutlineSubscriptions />} />
+        <Link to={"/"} style={{ textDecoration: "none", color: "inherit" }}>
+          <MenuItem text={"Home"} logo={<AiOutlineHome />} />
+        </Link>
+        <Link to={"/"} style={{ textDecoration: "none", color: "inherit" }}>
+          <MenuItem text="Explore" logo={<MdOutlineExplore />} />
+        </Link>
+
+        <Link to={"/"} style={{ textDecoration: "none", color: "inherit" }}>
+          <MenuItem text="subscribtion" logo={<MdOutlineSubscriptions />} />
+        </Link>
+
         <Hr />
-        <MenuItem text="Library" logo={<MdOutlineVideoLibrary />} />
-        <MenuItem text="History" logo={<AiOutlineHistory />} />
+        <Link to={"/"} style={{ textDecoration: "none", color: "inherit" }}>
+          <MenuItem text="Library" logo={<MdOutlineVideoLibrary />} />
+        </Link>
+
+        <Link to={"/"} style={{ textDecoration: "none", color: "inherit" }}>
+          <MenuItem text="History" logo={<AiOutlineHistory />} />
+        </Link>
+
         <Hr />
-        <SignIn>
-          <Paragraph text={"Sign In to like video, comment and subscribe"} />
-          <Mybutton text={"sign in"} logo={<MdPersonPin />} />
-        </SignIn>
+        <Link to={"/"} style={{ textDecoration: "none", color: "inherit" }}>
+          <SignIn>
+            <Paragraph text={"Sign In to like video, comment and subscribe"} />
+            <Mybutton text={"sign in"} logo={<MdPersonPin />} />
+          </SignIn>
+        </Link>
+
         <Hr />
+        <Title>Best of Youtube</Title>
         <MenuItem text="Music" logo={<MdLibraryMusic />} />
         <MenuItem text="sports" logo={<MdOutlineSportsBasketball />} />
         <MenuItem text="gaming" logo={<MdGames />} />
