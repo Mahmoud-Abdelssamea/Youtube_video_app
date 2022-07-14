@@ -26,7 +26,13 @@ const Logo = styled.img`
 `;
 
 // VideoDetails component
-const VideoDetails = styled.div``;
+const VideoDetails = styled.div`
+  color: ${({ theme }) => theme.text};
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  gap: 0.2rem;
+`;
 const Title = styled.h1`
   font-size: 0.9rem;
   font-weight: 500;

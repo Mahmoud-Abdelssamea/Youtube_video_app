@@ -85,18 +85,24 @@ export const Menu = ({ darkMode, setDarkMode }: MenuProps) => {
       </Link>
 
       <Wrapper>
+        {/* Home page link */}
         <Link to={"/"} style={{ textDecoration: "none", color: "inherit" }}>
           <MenuItem text={"Home"} logo={<AiOutlineHome />} />
         </Link>
+
+        {/* Explore page link */}
         <Link to={"/"} style={{ textDecoration: "none", color: "inherit" }}>
           <MenuItem text="Explore" logo={<MdOutlineExplore />} />
         </Link>
 
+        {/* Subscription page link*/}
         <Link to={"/"} style={{ textDecoration: "none", color: "inherit" }}>
           <MenuItem text="subscribtion" logo={<MdOutlineSubscriptions />} />
         </Link>
 
         <Hr />
+
+        {/* Library page link*/}
         <Link to={"/"} style={{ textDecoration: "none", color: "inherit" }}>
           <MenuItem text="Library" logo={<MdOutlineVideoLibrary />} />
         </Link>
