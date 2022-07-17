@@ -22,7 +22,7 @@ h5 {
 }
 
 body::-webkit-scrollbar {
-  width: 0.2em;
+  width: 0.7em;
 }
 
 body::-webkit-scrollbar-track {

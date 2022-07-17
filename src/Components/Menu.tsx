@@ -22,8 +22,7 @@ import { IoIosJournal } from "react-icons/io";
 import { Mybutton } from "./Mybutton";
 import { Paragraph } from "./Paragraph";
 import { MenuItem } from "./MenuItem";
-import { darkThemes } from "../Utils/Themes";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Container = styled.div`
@@ -35,7 +34,33 @@ const Container = styled.div`
   height: 100vh;
   position: sticky;
   top: 0;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
+
+const MenuButton = styled.button`
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: ${({ theme }) => theme.bgLighter};
+  background-color: ${({ theme }) => theme.textSoft};
+  position: sticky;
+  top: 40vh;
+  left: 20px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.text};
+    transition: 0.3s;
+  }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+`;
+
 const Logo = styled.div`
   display: flex;
   align-items: center;
@@ -75,6 +100,8 @@ interface MenuProps {
 }
 
 export const Menu = ({ darkMode, setDarkMode }: MenuProps) => {
+  const [showMenu, setShowMenu] = useState(true);
+
   return (
     <Container>
       <Link to={"/"} style={{ textDecoration: "none", color: "inherit" }}>
@@ -115,7 +142,12 @@ export const Menu = ({ darkMode, setDarkMode }: MenuProps) => {
         <Link to={"/"} style={{ textDecoration: "none", color: "inherit" }}>
           <SignIn>
             <Paragraph text={"Sign In to like video, comment and subscribe"} />
-            <Mybutton text={"sign in"} logo={<MdPersonPin />} />
+            <Link
+              to={"/login"}
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <Mybutton text={"sign in"} logo={<MdPersonPin />} />
+            </Link>
           </SignIn>
         </Link>
 
@@ -132,7 +164,7 @@ export const Menu = ({ darkMode, setDarkMode }: MenuProps) => {
         <MenuItem text="report" logo={<MdOutlineLiveTv />} />
         <MenuItem text="help" logo={<MdOutlineLiveTv />} />
         <MenuItem
-          text="light mode"
+          text={darkMode ? "light mode" : "dark mode"}
           logo={<MdOutlineLiveTv />}
           darkMode={darkMode}
           setDarkMode={setDarkMode}

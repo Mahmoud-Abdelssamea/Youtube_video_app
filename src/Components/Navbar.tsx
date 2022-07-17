@@ -1,5 +1,6 @@
-import { AiOutlineSearch } from "react-icons/ai";
+import { AiFillYoutube, AiOutlineSearch } from "react-icons/ai";
 import { MdPersonPin } from "react-icons/md";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Mybutton } from "./Mybutton";
 
@@ -13,7 +14,25 @@ const Nav = styled.nav`
   height: 3.2rem;
   padding: 0 1rem;
   position: relative;
+
+  @media (max-width: 768px) {
+    justify-content: space-between;
+  }
 `;
+
+// Main logo image
+const Logo = styled.div`
+  display: none;
+  color: ${({ theme }) => theme.text};
+
+  @media (max-width: 768px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+`;
+
+// Search Bar
 const SearchBar = styled.div`
   display: flex;
   align-items: center;
@@ -42,6 +61,12 @@ const Input = styled.input`
 export const Navbar = () => {
   return (
     <Nav>
+      <Link to="/" style={{ textDecoration: "none" }}>
+        <Logo>
+          <AiFillYoutube size={"2rem"} color={"red"} />
+          <h3>Mahmoud </h3>
+        </Logo>
+      </Link>
       <SearchBar>
         <Input type="search" placeholder="Search" />
         <AiOutlineSearch />

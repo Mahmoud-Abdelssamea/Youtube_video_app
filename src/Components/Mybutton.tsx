@@ -13,6 +13,10 @@ const Button = styled.button`
   justify-content: center;
   align-items: center;
   gap: 0.2rem;
+  &:hover {
+    background-color: #3ea6ff;
+    color: #fff;
+  }
 `;
 
 interface ButtonProps {
